@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import CodeMomentumExperience from './components/CodeMomentumExperience';
+import RobotHero from './components/RobotHero';
 import PostHeroSections from './components/PostHeroSections';
 import CustomCursor from './components/CustomCursor';
 import ContactPage from './components/ContactPage';
@@ -21,7 +21,7 @@ function ScrollToTop() {
 function Home() {
     return (
         <>
-            <CodeMomentumExperience />
+            <RobotHero />
             <PostHeroSections />
         </>
     );
@@ -44,25 +44,18 @@ function App() {
         });
         lenisRef.current = lenis;
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        // Sync Lenis with GSAP ScrollTrigger
-        // Technically only needed if you want Lenis to update GSAP before native scroll events
+        // Single RAF path via GSAP ticker — dual RAF was fighting ScrollTrigger pins
+        // and could make Selected Work flicker/disappear near section boundaries.
         lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => {
+        const onTick = (time) => {
             lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0, 0);
+        };
+        gsap.ticker.add(onTick);
+        gsap.ticker.lagSmoothing(0);
 
         return () => {
             lenis.destroy();
-            gsap.ticker.remove((time) => {
-                lenis.raf(time * 1000);
-            });
+            gsap.ticker.remove(onTick);
         };
     }, []);
 

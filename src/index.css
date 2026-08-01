@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --color-black: #000000;
     --color-carbon: #0b0b0b;
@@ -8,6 +12,30 @@
 
     --font-heading: 'Antonio', sans-serif;
     --font-body: 'Archivo Narrow', sans-serif;
+
+    /* shadcn-compatible tokens (charcoal / blue — no purple) */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+}
+
+/* Spline canvas should fill the hero without clipping interaction */
+.robot-hero canvas {
+    width: 100% !important;
+    height: 100% !important;
+    outline: none;
+    /*
+      Spline bakes a magenta bloom into this scene that runtime light.color
+      cannot fully override — desaturate the canvas so the pool reads white.
+    */
+    filter: saturate(0.08) contrast(1.08) brightness(1.06);
 }
 
 *,
@@ -380,9 +408,14 @@ h6,
 /* P1: Portfolio Intro */
 .p1-intro {
     text-align: center;
+}
+
+.p1-intro .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 .eyebrow {
@@ -397,6 +430,8 @@ h6,
     font-size: clamp(3rem, 10vw, 5.5rem);
     color: var(--color-deep-black);
     margin-bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
 }
 
 .intro-subtitle {
@@ -404,13 +439,18 @@ h6,
     font-weight: 700;
     color: var(--color-accent);
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .intro-desc {
-    max-width: 600px;
+    max-width: 38rem;
+    width: 100%;
+    margin: 0 auto 3rem;
     font-size: 1.2rem;
-    margin-bottom: 3rem;
+    line-height: 1.8;
+    letter-spacing: 0.4px;
     color: var(--color-carbon);
+    text-align: center;
 }
 
 .intro-actions {
@@ -418,6 +458,7 @@ h6,
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 /* P2: Featured Projects Carousel */
@@ -478,9 +519,133 @@ h6,
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    transform-style: preserve-3d;
-    perspective: 1200px;
-    will-change: transform;
+}
+
+.project-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform: none;
+    transform-style: flat;
+    backface-visibility: hidden;
+}
+
+.project-card .expertise-btn {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.project-img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: inherit;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.project-result {
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin: -1rem 0 1.5rem;
+    line-height: 1.5;
+}
+
+.skill-tags {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: -0.5rem 0 1.75rem;
+    line-height: 1.6;
+}
+
+/* Skills showcase */
+.p-skills {
+    background-color: var(--color-deep-black);
+    color: var(--color-white);
+}
+
+.p-skills .eyebrow {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+}
+
+.skills-title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: var(--color-white);
+    margin-bottom: 1.25rem;
+    letter-spacing: 4px;
+}
+
+.skills-lead {
+    max-width: 34rem;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.skills-groups {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .skills-groups {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 4rem;
+    }
+}
+
+.skills-group-title {
+    font-size: 1.15rem;
+    color: var(--color-accent);
+    letter-spacing: 3px;
+    margin-bottom: 1.25rem;
+}
+
+.skills-chip-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.skill-chip:hover {
+    border-color: var(--color-accent);
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--color-white);
 }
 
 @media(min-width: 768px) {

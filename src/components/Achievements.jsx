@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Trophy, Medal } from 'lucide-react';
+import { Trophy, Medal, Cpu, Award } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +21,18 @@ export default function Achievements() {
             desc: "Won Project of the Month outperforming the cohort while serving as Team Leader of the batch.",
             icon: <Medal size={48} />,
             color: "#f59e0b" // Subtlly gold-toned but keeping it within modern dark UI limits
+        },
+        {
+            title: "Hack-Nation Global AI Hackathon",
+            desc: "Shortlisted from 5,500+ global applications for the MIT-affiliated Hack-Nation Global AI Hackathon — July 2026.",
+            icon: <Cpu size={48} />,
+            color: "#38bdf8"
+        },
+        {
+            title: "AI Seekho Silver Tier 2026",
+            desc: "Ranked in the top 750 out of 10,000+ participants at a Google Developer Groups event.",
+            icon: <Award size={48} />,
+            color: "#94a3b8"
         }
     ];
 
@@ -50,7 +62,8 @@ export default function Achievements() {
                     trigger: containerRef.current,
                     start: "top 80%",
                     end: "bottom 80%",
-                    toggleActions: "play none none reverse",
+                    toggleActions: "play none none none",
+                    once: true,
                 }
             }
         );
