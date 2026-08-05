@@ -8,6 +8,7 @@ import CustomCursor from './components/CustomCursor';
 import ContactPage from './components/ContactPage';
 import Navbar from './components/Navbar';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import MobileExperienceNotice from './components/MobileExperienceNotice';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 function ScrollToTop() {
@@ -70,6 +71,7 @@ function App() {
                     <Route path="/contact" element={<ContactPage />} />
                 </Routes>
                 <ScrollToTopButton />
+                <MobileExperienceNotice />
             </div>
         </Router>
     );
