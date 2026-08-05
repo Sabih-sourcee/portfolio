@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import Achievements from './Achievements';
+import PlayerHeroSection from './PlayerHeroSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -227,6 +228,8 @@ export default function PostHeroSections() {
                     </div>
                 </div>
             </section>
+
+            <PlayerHeroSection />
 
             {/* P2: Featured Projects Carousel */}
             <section className="section-padding p2-projects" id="work" ref={carouselWrapperRef}>
