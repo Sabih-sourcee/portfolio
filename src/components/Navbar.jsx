@@ -22,7 +22,7 @@ export default function Navbar() {
 
                 <div className="desktop-links">
                     <Link to="/" className="nav-link">Home</Link>
-                    <a href="/portfolio/#skills" className="nav-link">Skills</a>
+                    <a href="/#skills" className="nav-link">Skills</a>
                     <Link to="/contact" className="nav-link">Contact</Link>
                 </div>
 
@@ -35,7 +35,7 @@ export default function Navbar() {
             <div className={`mobile-menu ${isOpen ? 'active' : ''}`}>
                 <div className="mobile-links">
                     <Link to="/" className="mobile-link" onClick={() => setIsOpen(false)}>Home</Link>
-                    <a href="/portfolio/#skills" className="mobile-link" onClick={() => setIsOpen(false)}>Skills</a>
+                    <a href="/#skills" className="mobile-link" onClick={() => setIsOpen(false)}>Skills</a>
                     <Link to="/contact" className="mobile-link" onClick={() => setIsOpen(false)}>Contact</Link>
                 </div>
             </div>

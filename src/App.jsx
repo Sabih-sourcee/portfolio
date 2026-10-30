@@ -61,7 +61,7 @@ function App() {
     }, []);
 
     return (
-        <Router basename="/portfolio">
+        <Router>
             <ScrollToTop />
             <div className="app-container">
                 <Navbar />

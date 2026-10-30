@@ -17,7 +17,7 @@ git init
 git add -A
 git commit -m "Deploy to GitHub Pages"
 git branch -M gh-pages
-git remote add origin https://github.com/sabih-source/portfolio.git
+git remote add origin https://github.com/Sabih-sourcee/portfolio.git
 git push origin gh-pages --force
 cd ..
 
@@ -25,9 +25,10 @@ echo.
 echo === Pushing source code to main... ===
 git add .
 git commit -m "Update source including new assets"
-git push origin main --force
+git push origin main
 
 echo === DONE! ===
-echo Your site will be live in 1-2 minutes at:
-echo https://sabih-source.github.io/portfolio
+echo Your site will be live at:
+echo https://sabih.is-a.dev
+echo (also: https://sabih-sourcee.github.io/portfolio)
 echo.
