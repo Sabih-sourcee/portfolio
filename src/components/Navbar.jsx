@@ -1,44 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
-import gsap from 'gsap';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-        setIsOpen(false);
-    }, [pathname]);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
     return (
-        <nav className="site-nav">
-            <div className="nav-container">
-                <Link to="/" className="nav-logo heading">S.U.R</Link>
-
-                <div className="desktop-links">
-                    <Link to="/" className="nav-link">Home</Link>
-                    <a href="/#skills" className="nav-link">Skills</a>
-                    <Link to="/contact" className="nav-link">Contact</Link>
-                </div>
-
-                <button className="mobile-toggle" onClick={toggleMenu} aria-label="Toggle Menu">
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
-            </div>
-
-            {/* Mobile Menu Overlay */}
-            <div className={`mobile-menu ${isOpen ? 'active' : ''}`}>
-                <div className="mobile-links">
-                    <Link to="/" className="mobile-link" onClick={() => setIsOpen(false)}>Home</Link>
-                    <a href="/#skills" className="mobile-link" onClick={() => setIsOpen(false)}>Skills</a>
-                    <Link to="/contact" className="mobile-link" onClick={() => setIsOpen(false)}>Contact</Link>
-                </div>
-            </div>
-        </nav>
+        <header className="topbar">
+            <Link to="/" className="brand">sabih</Link>
+            <nav className="topnav" aria-label="Primary">
+                <Link to="/">home</Link>
+                <a href="/#skills">skills</a>
+                <Link to="/contact">contact</Link>
+            </nav>
+        </header>
     );
 }
