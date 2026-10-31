@@ -105,6 +105,14 @@ textarea {
     margin-bottom: 0.5rem;
 }
 
+.intro-photo {
+    display: block;
+    width: 112px;
+    height: auto;
+    margin: 0 0 1.75rem;
+    border-radius: 16px;
+}
+
 .intro {
     margin: 0;
     font-family: var(--serif);

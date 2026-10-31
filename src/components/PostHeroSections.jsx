@@ -2,18 +2,22 @@ import { Link } from 'react-router-dom';
 
 const PROJECTS = [
     {
-        title: 'Virtual Try-On App',
-        desc: 'An AI-powered virtual try-on application.',
-        tech: ['React', 'GSAP', 'AI'],
-        url: 'https://virtual-tryon.lovable.app',
+        title: 'Interior AI',
+        desc: 'Got him into the AI Seekho online hackathon, top 750 out of 10,000+.',
+        url: 'https://interior-ai-sigma-ten.vercel.app',
         status: 'Live',
     },
     {
-        title: 'Rainwater System',
-        desc: 'A dashboard for environmental metrics.',
-        tech: ['React', 'GSAP', 'AI'],
-        url: 'https://sabih-bot.github.io/Rainwater/',
+        title: 'The VC Brain',
+        desc: 'Built at the HackNation hackathon.',
+        tech: ['Next.js', 'React'],
+        url: 'https://the-vc-brain.vercel.app',
         status: 'Live',
+    },
+    {
+        title: 'SimpleCRM',
+        // Text only. Never add a link or demo — the product exposes company CRM keys.
+        desc: 'Top 10 out of 1,100 applications. Pitched at NASTP at age 15, the youngest there.',
     },
     {
         title: 'Bawany Enterprises',
@@ -122,6 +126,13 @@ export default function PostHeroSections() {
     return (
         <main>
             <header className="intro-block">
+                <img
+                    className="intro-photo"
+                    src={`${import.meta.env.BASE_URL}assets/sabih.webp`}
+                    alt="Sabih Ur Rehman"
+                    width={600}
+                    height={800}
+                />
                 <p className="intro">
                     I&apos;m Sabih Ur Rehman, an AI Engineer at a company in Karachi. I build interactive products with LLMs, automation, and precise frontend craft.
                 </p>
@@ -142,10 +153,10 @@ export default function PostHeroSections() {
                         <article key={project.title} className="project">
                             <div className="project-head">
                                 <h3 className="project-title">{project.title}</h3>
-                                <StatusChip status={project.status} />
+                                {project.status ? <StatusChip status={project.status} /> : null}
                             </div>
                             <p className="project-desc">{project.desc}</p>
-                            <Tags items={project.tech} />
+                            {project.tech?.length ? <Tags items={project.tech} /> : null}
                             {project.url && (
                                 <a className="text-link" href={project.url} target="_blank" rel="noopener noreferrer">
                                     view project
@@ -212,8 +223,8 @@ export default function PostHeroSections() {
             <footer className="site-footer">
                 <p className="prose">Crafting immersive digital experiences with modern web technologies.</p>
                 <p className="inline-links">
-                    <a href="https://virtual-tryon.lovable.app" target="_blank" rel="noopener noreferrer">virtual try-on</a>
-                    <a href="https://sabih-bot.github.io/Rainwater/" target="_blank" rel="noopener noreferrer">rainwater</a>
+                    <a href="https://interior-ai-sigma-ten.vercel.app" target="_blank" rel="noopener noreferrer">interior ai</a>
+                    <a href="https://the-vc-brain.vercel.app" target="_blank" rel="noopener noreferrer">the vc brain</a>
                     <a href="https://bawanyenterprises.com" target="_blank" rel="noopener noreferrer">bawany enterprises</a>
                     <a href="https://bawanymobile.com" target="_blank" rel="noopener noreferrer">bawany mobile</a>
                     <a href="#skills">skills</a>
