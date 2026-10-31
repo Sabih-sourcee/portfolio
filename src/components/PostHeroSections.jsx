@@ -4,6 +4,8 @@ const PROJECTS = [
     {
         title: 'Interior AI',
         desc: 'Got him into the AI Seekho online hackathon, top 750 out of 10,000+.',
+        url: 'https://interior-ai-sigma-ten.vercel.app',
+        status: 'Live',
     },
     {
         title: 'The VC Brain',
@@ -14,6 +16,7 @@ const PROJECTS = [
     },
     {
         title: 'SimpleCRM',
+        // Text only. Never add a link or demo — the product exposes company CRM keys.
         desc: 'Top 10 out of 1,100 applications. Pitched at NASTP at age 15, the youngest there.',
     },
     {
@@ -123,6 +126,13 @@ export default function PostHeroSections() {
     return (
         <main>
             <header className="intro-block">
+                <img
+                    className="intro-photo"
+                    src={`${import.meta.env.BASE_URL}assets/sabih.webp`}
+                    alt="Sabih Ur Rehman"
+                    width={600}
+                    height={800}
+                />
                 <p className="intro">
                     I&apos;m Sabih Ur Rehman, an AI Engineer at a company in Karachi. I build interactive products with LLMs, automation, and precise frontend craft.
                 </p>
@@ -213,6 +223,7 @@ export default function PostHeroSections() {
             <footer className="site-footer">
                 <p className="prose">Crafting immersive digital experiences with modern web technologies.</p>
                 <p className="inline-links">
+                    <a href="https://interior-ai-sigma-ten.vercel.app" target="_blank" rel="noopener noreferrer">interior ai</a>
                     <a href="https://the-vc-brain.vercel.app" target="_blank" rel="noopener noreferrer">the vc brain</a>
                     <a href="https://bawanyenterprises.com" target="_blank" rel="noopener noreferrer">bawany enterprises</a>
                     <a href="https://bawanymobile.com" target="_blank" rel="noopener noreferrer">bawany mobile</a>
