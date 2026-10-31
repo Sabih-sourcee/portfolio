@@ -29,6 +29,5 @@ git push origin main
 
 echo === DONE! ===
 echo Your site will be live at:
-echo https://sabih.is-a.dev
-echo (also: https://sabih-sourcee.github.io/portfolio)
+echo https://sabihrehman.tech
 echo.

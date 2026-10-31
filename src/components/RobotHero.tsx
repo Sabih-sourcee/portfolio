@@ -22,7 +22,7 @@ export default function RobotHero() {
       <div className="relative z-10 flex flex-col items-center px-4 pt-24 pb-0 md:absolute md:inset-0 md:justify-start md:pt-28 lg:pt-32 md:px-8 md:pb-8">
         <div className="w-full max-w-3xl mx-auto text-center text-white">
           <p className="font-body text-[0.7rem] md:text-xs tracking-[0.35em] uppercase text-white/55 mb-4 md:mb-5">
-            Karachi · AI Engineer &amp; Full-Stack Developer
+            Karachi · AI Engineer at a company
           </p>
           <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.08em] uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
             Sabih Ur Rehman
