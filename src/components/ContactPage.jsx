@@ -2,37 +2,36 @@ import { Link } from 'react-router-dom';
 
 export default function ContactPage() {
     return (
-        <main className="contact-page">
-            <p className="section-label">contact</p>
+        <main className="page">
             <h1 className="contact-title">Let&apos;s build something</h1>
-            <p className="lede">Open to opportunities. AI Engineer at a company.</p>
+            <p className="plain">Open to opportunities. AI Engineer at a company.</p>
 
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
                 <label className="field">
-                    <span>name</span>
+                    <span>Name</span>
                     <input type="text" name="name" autoComplete="name" />
                 </label>
                 <label className="field">
-                    <span>email</span>
+                    <span>Email</span>
                     <input type="email" name="email" autoComplete="email" />
                 </label>
                 <label className="field">
-                    <span>message</span>
+                    <span>Message</span>
                     <textarea name="message" rows={5} />
                 </label>
-                <button type="submit" className="submit">send message</button>
+                <button type="submit" className="submit">Send message</button>
             </form>
 
-            <p className="inline-links">
-                <a href="https://github.com/sabih-source/" target="_blank" rel="noopener noreferrer">github</a>
-                <a href="#linkedin">linkedin</a>
-                <a href="#twitter">twitter</a>
-                <a href="#email">email</a>
+            <p className="plain">
+                <a href="https://github.com/sabih-source/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                {' · '}
+                <a href="#linkedin">LinkedIn</a>
+                {' · '}
+                <a href="#twitter">Twitter</a>
+                {' · '}
+                <a href="#email">Email</a>
             </p>
-
-            <p className="back-link">
-                <Link to="/">back home</Link>
-            </p>
+            <p className="plain"><Link to="/">Home</Link></p>
         </main>
     );
 }
