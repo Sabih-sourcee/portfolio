@@ -9,7 +9,7 @@
     "build": "next build && rm -rf dist && cp -r out dist && cp public/CNAME dist/CNAME",
     "preview": "npx --yes serve dist -l 4173",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -t"
   },
   "dependencies": {
     "next": "^16.3.6",
