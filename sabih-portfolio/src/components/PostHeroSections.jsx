@@ -3,8 +3,6 @@ import { ArrowLeft, ArrowRight, Code2, Database, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import Achievements from './Achievements';
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function PostHeroSections() {
@@ -171,9 +169,6 @@ export default function PostHeroSections() {
                     </div>
                 </div>
             </section>
-
-            {/* P5: Achievements */}
-            <Achievements />
 
             {/* Footer */}
             <footer className="site-footer">
