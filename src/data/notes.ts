@@ -4,41 +4,40 @@ export interface Note {
 	date: string;
 }
 
-/** Dates are only the ones already attached to this copy. Nothing new was invented. */
 export const notes: Note[] = [
 	{
-		id: "hack-nation",
-		date: "july 2026",
-		text: "Shortlisted from 5,500+ global applications for the MIT-affiliated Hack-Nation Global AI Hackathon — July 2026.",
+		id: "first-c",
+		date: "2020",
+		text: "I wrote my first C program in Turbo C++ at age 11.",
+	},
+	{
+		id: "first-job",
+		date: "march 2026",
+		text: "I got my first job at 15 as an AI Engineer at a company.",
 	},
 	{
 		id: "ai-seekho",
-		date: "2026",
-		text: "AI Seekho Silver Tier 2026. Ranked in the top 750 out of 10,000+ participants at a Google Developer Groups event.",
+		date: "july 2026",
+		text: "I joined my first hackathon, AI Seekho by GDG Pakistan, and placed in the top 750 out of 10,000+.",
 	},
 	{
-		id: "journeyman",
-		date: "season 2026",
-		text: "A journeyman this window — minutes spread across 19 clubs, most at Sabih-sourcee/Terminal-Performance-Manager.",
+		id: "builders-day",
+		date: "august 2026",
+		text: "I ranked in the top 10 of 1,100 applicants at GDG Builders Day, the youngest at NASTP.",
 	},
 	{
-		id: "weekday",
-		date: "season 2026",
-		text: "A weekday professional — trains on schedule, 77% of touches Mon–Fri.",
-	},
-	{
-		id: "scout",
-		date: "season 2026",
-		text: "Scout's verdict: Sabih-sourcee is a box-to-box engine — links maintenance to launches, covers every blade of grass. Standout attribute: BUILD 99. 20 matchdays in the observed window. Verdict: sign before the window closes.",
+		id: "research",
+		date: "2028",
+		text: "I'm working on AI/ML research, aiming to publish my first paper by 2028.",
 	},
 	{
 		id: "aptech",
 		date: "",
-		text: "Awarded prestigious High Achiever status in the advanced ACCP-AI program at Aptech.",
+		text: "I was awarded High Achiever status in the advanced ACCP-AI program at Aptech.",
 	},
 	{
 		id: "project-month",
 		date: "",
-		text: "Won Project of the Month outperforming the cohort while serving as Team Leader of the batch.",
+		text: "I won Project of the Month, outperforming the cohort while serving as Team Leader of the batch.",
 	},
 ];

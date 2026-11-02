@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { NotesSection } from "@/components/NotesSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
+import { siteConfig } from "@/config/site";
 
 const SKILLS = [
 	{ title: "Frontend", items: "React, Next.js, TypeScript, Tailwind CSS, GSAP, Vite" },
@@ -67,32 +68,19 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className='w-full'>
-					<div className='flex flex-col gap-2 items-start w-full text-sm text-olive-800 dark:text-olive-100'>
-						<p className='text-olive-400 dark:text-olive-600 text-sm mb-3 uppercase font-mono'>GitHub</p>
-						<p>
-							@Sabih-sourcee · &ldquo;The Engine&rdquo; · 1st season · class of 2026. Gold, overall 76.
-							Commits 94%.
-						</p>
-						<p className='text-olive-500'>build 99 · review 42 · ship 99 · volume 99 · impact 40</p>
-						<p className='text-olive-500'>last 5 matchdays: D · D · W · D · W</p>
-						<p>Terminal-Performance-Manager · The-VC-Brain · INTERIOR-AI</p>
-						<p className='text-olive-500'>TypeScript ×15 · JavaScript ×3 · Python ×2</p>
-						<p>
-							<a href='https://githubfc.com/Sabih-sourcee' className='link' target='_blank' rel='noopener noreferrer'>
-								View the card
-							</a>
-							{" · "}
-							<a href='https://github.com/Sabih-sourcee' className='link' target='_blank' rel='noopener noreferrer'>
-								GitHub profile
-							</a>
-						</p>
-					</div>
-				</div>
-
 				<div className='animate-in animate-delay-9'>
 					<Divider />
 				</div>
+
+				<p className='w-full text-sm'>
+					<a
+						href={siteConfig.social.githubCard}
+						className='link'
+						target='_blank'
+						rel='noopener noreferrer'>
+						View card
+					</a>
+				</p>
 
 				<div className='animate-in animate-delay-10 w-full'>
 					<Footer />
