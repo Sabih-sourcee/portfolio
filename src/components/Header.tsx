@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
 
 interface HeaderProps {
-	activePage?: "home" | "work" | "notes" | "contact";
+	activePage?: "home" | "work" | "notes" | "blog" | "contact";
 }
 
 export function Header({ activePage }: HeaderProps = {}) {
@@ -11,6 +11,7 @@ export function Header({ activePage }: HeaderProps = {}) {
 		{ to: "/", label: "Home", key: "home" },
 		{ to: "/#work", label: "Work", key: "work" },
 		{ to: "/#notes", label: "Notes", key: "notes" },
+		{ to: "/blog", label: "Blog", key: "blog" },
 		{ to: "/contact", label: "Contact", key: "contact" },
 	] as const;
 
