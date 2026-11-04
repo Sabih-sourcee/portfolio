@@ -3,8 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { getCanonicalUrl, siteConfig } from "@/config/site";
 import { getPost, posts, type PostBlock } from "@/data/posts";
+import { buildMetadata } from "@/lib/metadata";
+import { personId } from "@/lib/schema";
 
 export function generateStaticParams() {
 	return posts.map((post) => ({ slug: post.slug }));
@@ -15,33 +18,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	const post = getPost(slug);
 	if (!post) return { title: "Not found" };
 
-	const title = `${post.title} | ${siteConfig.author.name}`;
-	const canonical = getCanonicalUrl(`/blog/${post.slug}/`);
 	const image = post.blocks.find((block) => block.type === "image");
 	const ogImage = image
 		? { url: image.src, width: image.width, height: image.height, alt: image.alt }
-		: { url: siteConfig.images.profile, width: 600, height: 800, alt: "Portrait of Sabih Ur Rehman" };
+		: undefined;
 
-	return {
-		title: { absolute: title },
+	return buildMetadata({
+		title: `${post.title} | ${siteConfig.author.name}`,
 		description: post.description,
-		alternates: { canonical },
-		openGraph: {
-			title,
-			description: post.description,
-			url: canonical,
-			type: "article",
-			siteName: siteConfig.title,
-			locale: "en_US",
-			images: [ogImage],
-		},
-		twitter: {
-			card: image ? "summary_large_image" : "summary",
-			title,
-			description: post.description,
-			images: [ogImage.url],
-		},
-	};
+		path: `/blog/${post.slug}/`,
+		type: "article",
+		publishedTime: post.published,
+		image: ogImage,
+		card: image ? "summary_large_image" : "summary",
+	});
 }
 
 function PostBlockView({ block }: { block: PostBlock }) {
@@ -69,8 +59,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 	const post = getPost(slug);
 	if (!post) notFound();
 
+	const image = post.blocks.find((block) => block.type === "image");
+	const canonical = getCanonicalUrl(`/blog/${post.slug}/`);
+
 	return (
 		<div className='bg-olive-100 dark:bg-olive-900 min-h-screen w-full flex justify-center py-10'>
+			<JsonLd
+				data={{
+					"@context": "https://schema.org",
+					"@type": "BlogPosting",
+					headline: post.title,
+					description: post.description,
+					image: image ? `${siteConfig.url}${image.src}` : `${siteConfig.url}${siteConfig.images.profile}`,
+					datePublished: post.published,
+					author: { "@id": personId },
+					publisher: { "@id": personId },
+					mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+					url: canonical,
+					inLanguage: "en",
+				}}
+			/>
 			<div className='flex flex-col gap-6 items-center w-full max-w-xl px-4 m-0'>
 				<Header activePage='blog' />
 				<article className='w-full flex flex-col gap-4 text-olive-800 dark:text-olive-100'>

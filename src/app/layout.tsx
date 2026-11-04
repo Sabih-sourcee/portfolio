@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { JsonLd } from "@/components/JsonLd";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteConfig } from "@/config/site";
+import { portraitImage } from "@/lib/metadata";
+import { siteStructuredData } from "@/lib/schema";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
@@ -14,7 +17,6 @@ export const metadata: Metadata = {
 	description: siteConfig.description,
 	authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
 	icons: { icon: siteConfig.images.profile },
-	alternates: { canonical: siteConfig.url },
 	openGraph: {
 		type: "website",
 		locale: "en_US",
@@ -22,14 +24,7 @@ export const metadata: Metadata = {
 		siteName: siteConfig.title,
 		title: siteConfig.title,
 		description: siteConfig.description,
-		images: [
-			{
-				url: siteConfig.images.profile,
-				width: 600,
-				height: 800,
-				alt: siteConfig.author.name,
-			},
-		],
+		images: [portraitImage],
 	},
 	twitter: {
 		card: "summary",
@@ -50,6 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang='en' className={fontVariables} suppressHydrationWarning>
 			<body>
+				<JsonLd data={siteStructuredData()} />
 				<ThemeProvider>{children}</ThemeProvider>
 			</body>
 		</html>

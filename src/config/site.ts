@@ -8,7 +8,7 @@ export const siteConfig = {
 	name: "sabihrehman.tech",
 	title: "Sabih Ur Rehman",
 	description:
-		"AI Engineer at a company in Karachi. Building interactive products with LLMs, automation, and precise frontend craft.",
+		"Sabih Rehman is Sabih Ur Rehman, an AI Engineer at a company in Karachi. He builds interactive products with LLMs, automation, and precise frontend craft.",
 	url: "https://sabihrehman.tech",
 	locale: "en-US",
 

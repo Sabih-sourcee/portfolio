@@ -4,9 +4,11 @@ import { ThemeToggle } from "./ThemeToggle";
 
 interface HeaderProps {
 	activePage?: "home" | "work" | "notes" | "blog" | "contact";
+	/** The name is the page h1 only on the homepage. Other pages supply their own h1. */
+	nameIsH1?: boolean;
 }
 
-export function Header({ activePage }: HeaderProps = {}) {
+export function Header({ activePage, nameIsH1 = false }: HeaderProps = {}) {
 	const navLinks = [
 		{ to: "/", label: "Home", key: "home" },
 		{ to: "/#work", label: "Work", key: "work" },
@@ -29,7 +31,7 @@ export function Header({ activePage }: HeaderProps = {}) {
 				className='flex h-10 items-center justify-start relative shrink-0 w-full'
 				aria-label='Go to home'>
 				<img
-					alt='Sabih Ur Rehman'
+					alt='Portrait of Sabih Ur Rehman'
 					className='size-10 rounded-full object-cover object-[center_18%]'
 					src={siteConfig.images.profile}
 					width={600}
@@ -41,9 +43,15 @@ export function Header({ activePage }: HeaderProps = {}) {
 				href='/'
 				className='flex gap-1 items-center w-full hover:opacity-70 transition-opacity'
 				aria-label='Sabih Ur Rehman home'>
-				<h1 className='font-medium relative shrink-0 text-olive-800 dark:text-olive-100 text-xl text-justify'>
-					{siteConfig.author.name}
-				</h1>
+				{nameIsH1 ? (
+					<h1 className='font-medium relative shrink-0 text-olive-800 dark:text-olive-100 text-xl text-justify'>
+						{siteConfig.author.name}
+					</h1>
+				) : (
+					<p className='font-medium relative shrink-0 text-olive-800 dark:text-olive-100 text-xl text-justify'>
+						{siteConfig.author.name}
+					</p>
+				)}
 			</Link>
 
 			<nav className='flex gap-4 items-center relative shrink-0 w-full' aria-label='Main navigation'>

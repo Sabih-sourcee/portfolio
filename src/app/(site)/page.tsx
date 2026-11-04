@@ -5,6 +5,13 @@ import { Header } from "@/components/Header";
 import { NotesSection } from "@/components/NotesSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { siteConfig } from "@/config/site";
+import { buildMetadata } from "@/lib/metadata";
+
+export const metadata = buildMetadata({
+	title: siteConfig.title,
+	description: siteConfig.description,
+	path: "/",
+});
 
 const SKILLS = [
 	{ title: "Frontend", items: "React, Next.js, TypeScript, Tailwind CSS, GSAP, Vite" },
@@ -19,7 +26,7 @@ export default function Home() {
 		<div className='bg-olive-100 dark:bg-olive-900 min-h-screen w-full flex justify-center py-10'>
 			<div className='flex flex-col gap-6 items-center w-full max-w-xl px-4 m-0'>
 				<div className='animate-in w-full'>
-					<Header activePage='home' />
+					<Header activePage='home' nameIsH1 />
 				</div>
 
 				<div className='font-normal min-w-full relative shrink-0 text-olive-800 dark:text-olive-100 text-sm/6 flex flex-col gap-4'>

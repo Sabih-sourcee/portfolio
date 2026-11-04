@@ -2,6 +2,14 @@ import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { siteConfig } from "@/config/site";
+import { buildMetadata } from "@/lib/metadata";
+
+export const metadata = buildMetadata({
+	title: `Contact | ${siteConfig.author.name}`,
+	description: "Open to opportunities. Contact Sabih Ur Rehman, an AI Engineer at a company.",
+	path: "/contact/",
+});
 
 export default function ContactPage() {
 	return (

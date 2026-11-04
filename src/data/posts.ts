@@ -14,6 +14,8 @@ export interface Post {
 	description: string;
 	/** Optional label such as "November 2026". Leave empty if there is no date. */
 	date: string;
+	/** ISO date for BlogPosting schema. Not shown on the page. */
+	published?: string;
 	blocks: PostBlock[];
 }
 
@@ -24,6 +26,7 @@ export const posts: Post[] = [
 		description:
 			"At 15, with a new job and too much free time, I entered AI Seekho 2026 on a whim. Here's how Interior-AI got me into the top 750.",
 		date: "November 2026",
+		published: "2026-11-04",
 		blocks: [
 			{
 				type: "paragraph",

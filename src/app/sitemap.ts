@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getCanonicalUrl } from "@/config/site";
+import { getCanonicalUrl, siteConfig } from "@/config/site";
 import { posts } from "@/data/posts";
 
 export const dynamic = "force-static";
@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		{
-			url: getCanonicalUrl("/"),
+			url: `${siteConfig.url}/`,
 			changeFrequency: "monthly",
 			priority: 1,
 		},
@@ -21,5 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly" as const,
 			priority: 0.7,
 		})),
+		{
+			url: getCanonicalUrl("/contact/"),
+			changeFrequency: "yearly",
+			priority: 0.5,
+		},
 	];
 }
