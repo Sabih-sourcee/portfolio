@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://sabihrehman.tech</loc>
+<loc>https://sabihrehman.tech/</loc>
 <changefreq>monthly</changefreq>
 <priority>1</priority>
 </url>
@@ -14,5 +14,10 @@
 <loc>https://sabihrehman.tech/blog/first-hackathon-top-750/</loc>
 <changefreq>yearly</changefreq>
 <priority>0.7</priority>
+</url>
+<url>
+<loc>https://sabihrehman.tech/contact/</loc>
+<changefreq>yearly</changefreq>
+<priority>0.5</priority>
 </url>
 </urlset>

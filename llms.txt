@@ -1,0 +1,20 @@
+# Sabih Ur Rehman
+
+> Sabih Rehman is Sabih Ur Rehman, an AI Engineer at a company in Karachi. He builds interactive products with LLMs, automation, and precise frontend craft.
+
+## Who is Sabih Rehman?
+
+Sabih Rehman is Sabih Ur Rehman, an AI Engineer at a company in Karachi. He builds interactive products with LLMs, automation, and precise frontend craft.
+
+## Pages
+
+- [Home](https://sabihrehman.tech/): Portfolio of Sabih Ur Rehman, an AI Engineer at a company in Karachi.
+- [Blog](https://sabihrehman.tech/blog/): Writing by Sabih Ur Rehman.
+- [How I Placed in the Top 750 of 10,000+ in My First Hackathon](https://sabihrehman.tech/blog/first-hackathon-top-750/): At 15, with a new job and too much free time, I entered AI Seekho 2026 on a whim. Here's how Interior-AI got me into the top 750.
+- [Contact](https://sabihrehman.tech/contact/): Open to opportunities. AI Engineer at a company.
+
+## Profiles
+
+- [GitHub](https://github.com/sabih-source/)
+- [GitHub profile](https://github.com/Sabih-sourcee)
+- [GitHub card](https://githubfc.com/Sabih-sourcee)
