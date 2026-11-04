@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/0o58v_py10_hd.css","style"]
+:HL["/_next/static/chunks/1j74z58xbplk4.css","style"]
 :HL["/_next/static/media/2201e4cbf66e9071-s.p.24y44fdogdrxy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/5a3efdb1d2374269-s.p.3cr-_dy_l2csx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/67801a12f502604a-s.p.0uig1_56ce009.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -7,4 +7,4 @@
 :HL["/assets/sabih.webp","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"contact","h":96,"c":"$Q2"}]]
-0:{"b":"nQ35p8fxcL_oXBwZUIVsR","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"ThSsFJ2ONwBp8OFwu5BLj","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
