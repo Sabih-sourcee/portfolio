@@ -12,14 +12,15 @@ The words, portrait, and project links are Sabih’s. The template’s own text,
 
 ## Add a blog post
 
-Posts live in `src/data/posts.ts`. Copy the sample object, then change:
+Posts live in `src/data/posts.ts`. Copy an existing object, then change:
 
 - `slug` — lowercase words separated by hyphens. This becomes `/blog/your-slug`.
 - `title` — the headline.
+- `description` — one or two sentences. This is the meta description and the link-preview text.
 - `date` — optional. Leave it as `""` if you do not have a date.
-- `paragraphs` — one string per paragraph.
+- `blocks` — the post, in order. A heading is `{ type: "heading", text: "..." }`. A paragraph is `{ type: "paragraph", text: "..." }`.
 
-Delete the sample post (`hello-world`) when you no longer need it. `npm run build` writes each post into the static export.
+`npm run build` writes each post into the static export and lists it in `sitemap.xml`.
 
 ## Develop
 

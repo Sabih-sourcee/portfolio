@@ -14,6 +14,29 @@ export const metadata: Metadata = {
 	description: siteConfig.description,
 	authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
 	icons: { icon: siteConfig.images.profile },
+	alternates: { canonical: siteConfig.url },
+	openGraph: {
+		type: "website",
+		locale: "en_US",
+		url: siteConfig.url,
+		siteName: siteConfig.title,
+		title: siteConfig.title,
+		description: siteConfig.description,
+		images: [
+			{
+				url: siteConfig.images.profile,
+				width: 600,
+				height: 800,
+				alt: siteConfig.author.name,
+			},
+		],
+	},
+	twitter: {
+		card: "summary",
+		title: siteConfig.title,
+		description: siteConfig.description,
+		images: [siteConfig.images.profile],
+	},
 };
 
 export const viewport: Viewport = {

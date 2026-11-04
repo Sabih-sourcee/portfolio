@@ -1,7 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getCanonicalUrl, siteConfig } from "@/config/site";
 import { posts } from "@/data/posts";
+
+const title = `Blog | ${siteConfig.author.name}`;
+const description = "Writing by Sabih Ur Rehman.";
+
+export const metadata: Metadata = {
+	title: { absolute: title },
+	description,
+	alternates: { canonical: getCanonicalUrl("/blog/") },
+	openGraph: {
+		title,
+		description,
+		url: getCanonicalUrl("/blog/"),
+		type: "website",
+		siteName: siteConfig.title,
+		locale: "en_US",
+	},
+	twitter: {
+		card: "summary",
+		title,
+		description,
+	},
+};
 
 export default function BlogPage() {
 	return (
