@@ -4,7 +4,8 @@
  */
 export type PostBlock =
 	| { type: "heading"; text: string }
-	| { type: "paragraph"; text: string };
+	| { type: "paragraph"; text: string }
+	| { type: "image"; src: string; alt: string; width: number; height: number };
 
 export interface Post {
 	slug: string;
@@ -62,6 +63,13 @@ export const posts: Post[] = [
 			{
 				type: "paragraph",
 				text: "More than 10,000 people applied. I finished in the top 750, and Google sent me swag to prove it.",
+			},
+			{
+				type: "image",
+				src: "/assets/ai-seekho-2026-swag.webp",
+				alt: "Google swag from AI Seekho 2026: Gemini cap, Google mug, tote bag and stickers",
+				width: 310,
+				height: 414,
 			},
 			{
 				type: "paragraph",

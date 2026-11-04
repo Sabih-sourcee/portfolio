@@ -17,6 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 	const title = `${post.title} | ${siteConfig.author.name}`;
 	const canonical = getCanonicalUrl(`/blog/${post.slug}/`);
+	const image = post.blocks.find((block) => block.type === "image");
+	const ogImage = image
+		? { url: image.src, width: image.width, height: image.height, alt: image.alt }
+		: { url: siteConfig.images.profile, width: 600, height: 800, alt: "Portrait of Sabih Ur Rehman" };
 
 	return {
 		title: { absolute: title },
@@ -29,20 +33,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 			type: "article",
 			siteName: siteConfig.title,
 			locale: "en_US",
-			images: [
-				{
-					url: siteConfig.images.profile,
-					width: 600,
-					height: 800,
-					alt: siteConfig.author.name,
-				},
-			],
+			images: [ogImage],
 		},
 		twitter: {
-			card: "summary",
+			card: image ? "summary_large_image" : "summary",
 			title,
 			description: post.description,
-			images: [siteConfig.images.profile],
+			images: [ogImage.url],
 		},
 	};
 }
@@ -50,6 +47,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function PostBlockView({ block }: { block: PostBlock }) {
 	if (block.type === "heading") {
 		return <h2 className='font-medium text-base mt-2'>{block.text}</h2>;
+	}
+
+	if (block.type === "image") {
+		return (
+			<img
+				src={block.src}
+				alt={block.alt}
+				width={block.width}
+				height={block.height}
+				className='w-full h-auto'
+			/>
+		);
 	}
 
 	return <p className='text-sm/6'>{block.text}</p>;

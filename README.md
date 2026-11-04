@@ -18,7 +18,7 @@ Posts live in `src/data/posts.ts`. Copy an existing object, then change:
 - `title` — the headline.
 - `description` — one or two sentences. This is the meta description and the link-preview text.
 - `date` — optional. Leave it as `""` if you do not have a date.
-- `blocks` — the post, in order. A heading is `{ type: "heading", text: "..." }`. A paragraph is `{ type: "paragraph", text: "..." }`.
+- `blocks` — the post, in order. A heading is `{ type: "heading", text: "..." }`. A paragraph is `{ type: "paragraph", text: "..." }`. A photo is `{ type: "image", src: "/assets/photo.webp", alt: "...", width: 1200, height: 800 }`.
 
 `npm run build` writes each post into the static export and lists it in `sitemap.xml`.
 
