@@ -83,6 +83,16 @@ function PostBlockView({ block }: { block: PostBlock }) {
 		);
 	}
 
+	if (block.type === "list") {
+		return (
+			<ol className='list-decimal pl-5 text-sm/6 flex flex-col gap-1'>
+				{block.items.map((item) => (
+					<li key={item}>{item}</li>
+				))}
+			</ol>
+		);
+	}
+
 	return <ParagraphText text={block.text} />;
 }
 
