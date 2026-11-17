@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactElement } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
@@ -34,6 +35,37 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	});
 }
 
+function ParagraphText({ text }: { text: string }) {
+	const nodes: Array<string | ReactElement> = [];
+	const pattern = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+	let lastIndex = 0;
+	let match: RegExpExecArray | null;
+	let key = 0;
+
+	while ((match = pattern.exec(text)) !== null) {
+		if (match.index > lastIndex) {
+			nodes.push(text.slice(lastIndex, match.index));
+		}
+		nodes.push(
+			<a
+				key={key++}
+				href={match[2]}
+				className='link'
+				target='_blank'
+				rel='noopener noreferrer'>
+				{match[1]}
+			</a>
+		);
+		lastIndex = match.index + match[0].length;
+	}
+
+	if (lastIndex < text.length) {
+		nodes.push(text.slice(lastIndex));
+	}
+
+	return <p className='text-sm/6'>{nodes}</p>;
+}
+
 function PostBlockView({ block }: { block: PostBlock }) {
 	if (block.type === "heading") {
 		return <h2 className='font-medium text-base mt-2'>{block.text}</h2>;
@@ -51,7 +83,7 @@ function PostBlockView({ block }: { block: PostBlock }) {
 		);
 	}
 
-	return <p className='text-sm/6'>{block.text}</p>;
+	return <ParagraphText text={block.text} />;
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
