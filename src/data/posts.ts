@@ -1,6 +1,7 @@
 /**
  * Blog posts. To add one, copy an existing object and replace the slug,
  * title, description, date, and blocks. Then run `npm run build`.
+ * Paragraph text may include markdown links: [label](https://example.com)
  */
 export type PostBlock =
 	| { type: "heading"; text: string }
@@ -20,6 +21,65 @@ export interface Post {
 }
 
 export const posts: Post[] = [
+	{
+		slug: "techjuice-featured-smartpet",
+		title: "TechJuice Featured Smartpet",
+		description:
+			"TechJuice wrote about Smartpet, the voice AI tutor I am building in Karachi.",
+		date: "November 2026",
+		published: "2026-11-17",
+		blocks: [
+			{
+				type: "paragraph",
+				text: "Today TechJuice published an article about Smartpet. Abdul Wasay wrote it after talking to me about what I am building and how my day works.",
+			},
+			{
+				type: "paragraph",
+				text: "Read it here: [A 16-Year-Old in Karachi Built an AI Tutor That Breaks Any Goal Into 10 Steps](https://www.techjuice.pk/sabih-ur-rehman-smartpet-ai-tutor-karachi/)",
+			},
+			{ type: "heading", text: "What Smartpet is" },
+			{
+				type: "paragraph",
+				text: "Smartpet is a voice AI tutor for complete beginners. When you open it, it talks to you. It asks your name and what you want to learn. Then it breaks that goal into 10 simple steps and guides you through them in the language you want.",
+			},
+			{
+				type: "paragraph",
+				text: "The problem is simple. Everyone knows the end goal, but most people don't know where to start or what the process looks like. Smartpet gives them the first step and the order of the steps.",
+			},
+			{
+				type: "paragraph",
+				text: "You can try it live inside the article. It is embedded right there.",
+			},
+			{ type: "heading", text: "My normal day" },
+			{
+				type: "paragraph",
+				text: "I wake up at 9 and check that the code is working and the server is responding. At 11 I go to my office job, where I work as an AI engineer. When I come home, I spend the rest of the day adding features to Smartpet and fixing what breaks. On alternate days I have O Level coaching classes, since I am doing O Levels privately.",
+			},
+			{ type: "heading", text: "What comes next" },
+			{
+				type: "paragraph",
+				text: "The website is only version 1. Version 2 is about hardware. Smartpet will watch a student build a circuit through a live camera and tell them right away when a wire is in the wrong place. It will act like a hardware teacher sitting next to you.",
+			},
+			{
+				type: "paragraph",
+				text: "The part that still feels magical to me is that it can watch in real time. You don't have to send a prompt and wait for an answer. It just sees what you are doing.",
+			},
+			{
+				type: "paragraph",
+				text: "I am waiting on a hardware grant to build the physical version, and I have applied to Y Combinator with Smartpet.",
+			},
+			{ type: "heading", text: "Who it is for" },
+			{
+				type: "paragraph",
+				text: "Schools first, especially in places like Pakistan where students read about computers in books but rarely get to learn by doing. After that, any home where someone wants to learn something and doesn't know where to begin.",
+			},
+			{ type: "heading", text: "Thanks" },
+			{
+				type: "paragraph",
+				text: "Thanks to Abdul Wasay and TechJuice for the feature.",
+			},
+		],
+	},
 	{
 		slug: "first-hackathon-top-750",
 		title: "How I Placed in the Top 750 of 10,000+ in My First Hackathon",
