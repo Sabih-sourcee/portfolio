@@ -6,6 +6,7 @@
 export type PostBlock =
 	| { type: "heading"; text: string }
 	| { type: "paragraph"; text: string }
+	| { type: "list"; items: string[] }
 	| { type: "image"; src: string; alt: string; width: number; height: number };
 
 export interface Post {
@@ -23,60 +24,106 @@ export interface Post {
 export const posts: Post[] = [
 	{
 		slug: "techjuice-featured-smartpet",
-		title: "TechJuice Featured Smartpet",
+		title: "How I Got Featured on TechJuice",
 		description:
-			"TechJuice wrote about Smartpet, the voice AI tutor I am building in Karachi.",
+			"How a LinkedIn message from TechJuice turned into an article about Smartpet, and what Smartpet actually is.",
 		date: "November 2026",
 		published: "2026-11-17",
 		blocks: [
 			{
 				type: "paragraph",
-				text: "Today TechJuice published an article about Smartpet. Abdul Wasay wrote it after talking to me about what I am building and how my day works.",
+				text: "On November 11, I got a LinkedIn message from Abdul Wasay, Senior Content Manager at TechJuice. He said they wanted to feature Smartpet, my AI tutor app, in an article.",
 			},
 			{
 				type: "paragraph",
-				text: "Read it here: [A 16-Year-Old in Karachi Built an AI Tutor That Breaks Any Goal Into 10 Steps](https://www.techjuice.pk/sabih-ur-rehman-smartpet-ai-tutor-karachi/)",
+				text: "I replied in a minute. I said yes, but I wanted to know what kind of article it would be. I also told him one thing upfront: Smartpet is not just an app. I am building it for a robot, which is also in development by me.",
+			},
+			{
+				type: "paragraph",
+				text: "Then nothing for a day. I sent a \"?\". Next morning he explained: TechJuice regularly features startups and personal projects. They go deep into what the idea is, how it came about, and what problem it solves in the long run. He said he would send me some questions.",
+			},
+			{
+				type: "paragraph",
+				text: "Then nothing again. Another \"?\" from me. It turned out he was out of town for a couple of days.",
+			},
+			{
+				type: "paragraph",
+				text: "On November 16 the questions came. Five of them, and whatever I answered would be used word for word:",
+			},
+			{
+				type: "list",
+				items: [
+					"What does a normal day of building Smartpet look like as a 16 year old?",
+					"How does Smartpet work today?",
+					"What is the most common mistake the AI is good at catching?",
+					"Is it mainly a classroom tool for schools in emerging markets? What is the future?",
+					"What part of building it still feels the most magical?",
+				],
+			},
+			{
+				type: "paragraph",
+				text: "I was leaving for the office, so I told him I would answer once I reached. I typed all five answers from the office in one go, around 1 PM. He replied that it was great.",
+			},
+			{
+				type: "paragraph",
+				text: "Then I asked him a few questions of my own, like how many people read their articles. He said they have a 90K+ audience across their socials and website.",
+			},
+			{
+				type: "paragraph",
+				text: "Then he asked two things: a picture of me working on the project, and a public link to Smartpet so they could embed it in the article. The problem was I did not have a public link yet. I said I would make one by night. Around 4 PM I sent him smartpet.sabihrehman.tech and an iframe code to embed it, and told him it would be fully working by 9 PM. So I basically shipped the public version of Smartpet because an article needed it.",
+			},
+			{
+				type: "paragraph",
+				text: "On November 17 he followed up about the picture. At 1:04 PM he sent me the link. The article was live: [Karachi Teen Builds AI Tutor Smartpet, Applies to Y Combinator](https://www.techjuice.pk/sabih-ur-rehman-smartpet-ai-tutor-karachi/). Smartpet is embedded right inside it, and it works.",
+			},
+			{
+				type: "paragraph",
+				text: "Six days from the first message to a live article. Most of it was waiting, sending \"?\", and then building fast when it was actually needed.",
 			},
 			{ type: "heading", text: "What Smartpet is" },
 			{
 				type: "paragraph",
-				text: "Smartpet is a voice AI tutor for complete beginners. When you open it, it talks to you. It asks your name and what you want to learn. Then it breaks that goal into 10 simple steps and guides you through them in the language you want.",
+				text: "Smartpet is a voice AI tutor for complete beginners. When you open it, it talks to you. It asks your name and what you want to learn. Then it breaks that goal into 10 simple steps that even someone who has never touched a computer can follow, and it guides you through them in whatever language you want.",
 			},
 			{
 				type: "paragraph",
-				text: "The problem is simple. Everyone knows the end goal, but most people don't know where to start or what the process looks like. Smartpet gives them the first step and the order of the steps.",
+				text: "For example, if your goal is to write articles in the most productive way, it will teach you that in 10 simple steps.",
 			},
 			{
 				type: "paragraph",
-				text: "You can try it live inside the article. It is embedded right there.",
+				text: "The problem it solves is the start. Everyone knows the end goal, but nobody knows where to begin or what the process looks like. Smartpet gives you the first step and the order of the steps.",
 			},
 			{ type: "heading", text: "My normal day" },
 			{
 				type: "paragraph",
-				text: "I wake up at 9 and check that the code is working and the server is responding. At 11 I go to my office job, where I work as an AI engineer. When I come home, I spend the rest of the day adding features to Smartpet and fixing what breaks. On alternate days I have O Level coaching classes, since I am doing O Levels privately.",
+				text: "I am doing O Levels privately. I wake up at 9 and check that the code is working and the server is responding. At 11 I go to the office with my laptop, and some coding and debugging happens there too. When I come home, I spend the rest of the day adding features and making Smartpet better. On alternate days I go to coaching for studies.",
 			},
 			{ type: "heading", text: "What comes next" },
 			{
 				type: "paragraph",
-				text: "The website is only version 1. Version 2 is about hardware. Smartpet will watch a student build a circuit through a live camera and tell them right away when a wire is in the wrong place. It will act like a hardware teacher sitting next to you.",
+				text: "Right now Smartpet is a website, and that is only version 1. I am waiting for a hardware grant so I can turn it into a real robot.",
 			},
 			{
 				type: "paragraph",
-				text: "The part that still feels magical to me is that it can watch in real time. You don't have to send a prompt and wait for an answer. It just sees what you are doing.",
+				text: "Version 2 is only about hardware. Students learn software easily now because they have Claude. With hardware, like building robots, they get stuck and there is no one to help. Smartpet v2 will watch a student live through a camera while they do the wiring and tell them right away when something is wrong. Like a hardware professor sitting next to you.",
 			},
 			{
 				type: "paragraph",
-				text: "I am waiting on a hardware grant to build the physical version, and I have applied to Y Combinator with Smartpet.",
+				text: "The part that still feels magical to me is exactly that. It does not wait for you to send a prompt and then generate instructions. It watches live.",
+			},
+			{
+				type: "paragraph",
+				text: "I have applied to Y Combinator with Smartpet.",
 			},
 			{ type: "heading", text: "Who it is for" },
 			{
 				type: "paragraph",
-				text: "Schools first, especially in places like Pakistan where students read about computers in books but rarely get to learn by doing. After that, any home where someone wants to learn something and doesn't know where to begin.",
+				text: "Schools first, so students learn computers by actually doing things, not only by reading books. After that, every home.",
 			},
 			{ type: "heading", text: "Thanks" },
 			{
 				type: "paragraph",
-				text: "Thanks to Abdul Wasay and TechJuice for the feature.",
+				text: "Thanks to Abdul Wasay and TechJuice for the feature. You can try Smartpet at [smartpet.sabihrehman.tech](https://smartpet.sabihrehman.tech).",
 			},
 		],
 	},
